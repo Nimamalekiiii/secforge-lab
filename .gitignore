@@ -1,0 +1,7 @@
+# Egne resultater, pakkefangst og notater – skal ikke på GitHub
+loot/
+*.pcap
+*.pcapng
+
+# System
+.DS_Store

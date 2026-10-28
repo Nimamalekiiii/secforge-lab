@@ -1,0 +1,49 @@
+# SecForge – isolert øvingslab for cybersikkerhet
+# Alt kjører på et eget Docker-nettverk (labnet). Angrip KUN containerne her inne.
+name: secforge
+
+services:
+  # --- Mål 1: bevisst sårbar web-app (SQLi, XSS, CSRF, file upload ...) ---
+  dvwa:
+    image: vulnerables/web-dvwa:latest
+    container_name: secforge-dvwa
+    networks: [labnet]
+    # Porten er bundet til localhost, så laben aldri eksponeres på nettverket ditt.
+    ports: ["127.0.0.1:8081:80"]
+    restart: unless-stopped
+
+  # --- Mål 2: moderne sårbar web-app (OWASP Top 10) ---
+  juice-shop:
+    image: bkimminich/juice-shop:latest
+    container_name: secforge-juice
+    networks: [labnet]
+    ports: ["127.0.0.1:8082:3000"]
+    restart: unless-stopped
+
+  # --- Mål 3: enkel nettverkstjeneste å skanne/kartlegge ---
+  target-ssh:
+    image: lscr.io/linuxserver/openssh-server:latest
+    container_name: secforge-target
+    environment:
+      - USER_NAME=student
+      - PASSWORD_ACCESS=true
+      - USER_PASSWORD=secforge123   # kun en lokal øvingsboks i laben
+    networks: [labnet]
+    restart: unless-stopped
+
+  # --- Angriper-/analyseboks: nmap, curl, tcpdump m.m. ---
+  attacker:
+    build: ./attacker
+    container_name: secforge-attacker
+    networks: [labnet]
+    cap_add: [NET_RAW, NET_ADMIN]   # trengs for pakkefangst (tcpdump)
+    volumes:
+      - ./scripts:/opt/scripts:ro
+      - ./loot:/opt/loot            # her lagrer du egne resultater/pcap-filer
+    tty: true
+    stdin_open: true
+    command: ["sleep", "infinity"]
+
+networks:
+  labnet:
+    driver: bridge
