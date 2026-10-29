@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-# SecForge – kjører alle angrepene mot laben og skriver en rapport til writeups/REPORT.md
-# Kjøres fra prosjektmappen i din egen Terminal:  bash scripts/run-all.sh
+
 set -uo pipefail
 cd "$(dirname "$0")/.."
 mkdir -p writeups loot
@@ -35,10 +33,10 @@ cat > writeups/REPORT.md <<MD
 
 | # | Mål | Funn | Alvorlighet |
 |---|-----|------|-------------|
-| 1 | juice-shop | SQL-injection gir innlogging uten passord + gyldig JWT | 🔴 Kritisk |
-| 2 | dvwa | SQL-injection dumper alle brukernavn og passord-hasher | 🔴 Kritisk |
-| 3 | juice-shop | Produktkatalog hentes ut via åpent API uten innlogging | 🟠 Middels |
-| 4 | target-ssh | SSH-tjeneste eksponert med svakt passord | 🟠 Middels |
+| 1 | juice-shop | SQL-injection gir innlogging uten passord + gyldig JWT | Kritisk |
+| 2 | dvwa | SQL-injection dumper alle brukernavn og passord-hasher | Kritisk |
+| 3 | juice-shop | Produktkatalog hentes ut via åpent API uten innlogging |  Middels |
+| 4 | target-ssh | SSH-tjeneste eksponert med svakt passord | Middels |
 
 ---
 
@@ -101,5 +99,5 @@ som er hele poenget med å trene i et trygt, isolert miljø.
 MD
 
 echo
-echo "✅ Rapport skrevet til writeups/REPORT.md"
+echo " Rapport skrevet til writeups/REPORT.md"
 echo "   Åpne den gjerne for å lese gjennom før opplasting."
