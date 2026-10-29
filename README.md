@@ -45,13 +45,22 @@ Gjennomgangene ligger i [`exercises/`](exercises/):
 3. [Cross-Site Scripting](exercises/03-web-xss.md)
 4. [Trafikk- og logganalyse](exercises/04-trafikkanalyse.md)
 
+
+## 🤖 Kjør alt automatisk
+Hele øvelsen kan kjøres i ett steg, som også skriver en rapport:
+```bash
+bash scripts/run-all.sh
+```
+Rapporten med alle funn og tiltak havner i [`writeups/REPORT.md`](writeups/REPORT.md).
+
 ## 🗂️ Struktur
 ```text
 secforge-lab/
 ├── docker-compose.yml   # definerer hele laben
 ├── attacker/            # Dockerfile for angriper-/analyseboksen
-├── scripts/             # recon.sh, capture.sh
+├── scripts/             # recon.sh, capture.sh, attack.py, run-all.sh
 ├── exercises/           # øvingsoppgaver med refleksjon
+├── writeups/            # angrepsrapport (REPORT.md)
 └── loot/                # dine egne resultater (ignoreres av git)
 ```
 
