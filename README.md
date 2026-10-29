@@ -64,5 +64,15 @@ secforge-lab/
 └── loot/                # dine egne resultater (ignoreres av git)
 ```
 
+## 🔗 Relaterte prosjekter
+
+SecForge er **red team**-delen av en større arbeidsflyt. Angrepene her oppdages og visualiseres i disse prosjektene:
+
+| | Prosjekt | Rolle |
+|---|---|---|
+| 🧪 | **SecForge** *(dette repoet)* | Laben der angrepene utføres (**red team**) |
+| 🔎 | [**Security Log Analyzer**](https://github.com/Nimamalekiiii/security-log-analyzer) | Oppdager angrepene i loggene (**blue team**) |
+| 📊 | [**Live SIEM Dashboard**](https://nimamalekiiii.github.io/security-log-analyzer/) | Visualiserer funnene som en SOC-oversikt |
+
 ## 🛠️ Verktøy
 Docker · nmap · tcpdump · DVWA · OWASP Juice Shop · Wireshark
