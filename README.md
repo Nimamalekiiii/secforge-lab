@@ -1,6 +1,6 @@
-# SecForge 🔐
+# SecForge 
 
-> 🚧 **Under utvikling** – dette prosjektet er ikke ferdig ennå, og flere endringer kommer.
+>  **Under utvikling** – dette prosjektet er ikke ferdig ennå, og flere endringer kommer.
 
 Et **isolert øvingslab for cybersikkerhet**, bygget med Docker. Laben starter med vilje
 sårbare mål i et lukket Docker-nettverk, slik at jeg trygt kan øve på rekognosering,
@@ -8,12 +8,12 @@ web-angrep og trafikkanalyse – og forstå hvordan man **forsvarer** seg mot de
 
 Laget som en del av studiene mine i cybersikkerhet.
 
-## ⚠️ Etikk og bruk
+##  Etikk og bruk
 Alt her er ment for læring i et lukket miljø. Målene kjører kun som containere inne i
 laben, og portene er bundet til `127.0.0.1` så ingenting eksponeres utover din egen maskin.
 **Bruk kun verktøyene mot containerne i denne laben – aldri mot systemer du ikke eier.**
 
-## 🧩 Hva laben inneholder
+##  Hva laben inneholder
 | Boks | Rolle |
 |---|---|
 | **dvwa** | Damn Vulnerable Web App – SQLi, XSS, CSRF, file upload (http://localhost:8081) |
@@ -21,7 +21,7 @@ laben, og portene er bundet til `127.0.0.1` så ingenting eksponeres utover din 
 | **target-ssh** | Enkel SSH-tjeneste å kartlegge og skanne |
 | **attacker** | Analyseboks med `nmap`, `curl`, `tcpdump`, `netcat` m.m. |
 
-## 🚀 Kom i gang
+##  Kom i gang
 Krever **Docker Desktop** installert og kjørende.
 
 ```bash
@@ -38,7 +38,7 @@ docker compose exec attacker bash
 docker compose down
 ```
 
-## 📚 Øvelser
+##  Øvelser
 Gjennomgangene ligger i [`exercises/`](exercises/):
 1. [Nettverksrekognosering](exercises/01-rekognosering.md)
 2. [SQL-injection](exercises/02-web-sqli.md)
@@ -53,7 +53,7 @@ bash scripts/run-all.sh
 ```
 Rapporten med alle funn og tiltak havner i [`writeups/REPORT.md`](writeups/REPORT.md).
 
-## 🗂️ Struktur
+## Struktur
 ```text
 secforge-lab/
 ├── docker-compose.yml   # definerer hele laben
